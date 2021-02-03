@@ -6,3 +6,14 @@ classes:
       # `file` can be relative or absolute
       - file: "../hello-world/hello.md"
       - file: "../hello-world/world.md"
+  - class_id: <your_class_id>
+    exercises:
+      # `syntax` is optional
+      # can be "md" | "rst" | "adoc"
+      # uses file extension as fallback
+      - file: "../markup-syntaxes/markdown.md"
+        syntax: "md"
+      - file: "../markup-syntaxes/restructured.rst"
+        syntax: "rst"
+      - file: "../markup-syntaxes/asciidoc.adoc"
+        syntax: "adoc"

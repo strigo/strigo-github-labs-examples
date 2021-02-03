@@ -1,0 +1,3 @@
+= Asciidoc
+
+Yay, asciidoc
