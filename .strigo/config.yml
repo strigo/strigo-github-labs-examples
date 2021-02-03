@@ -2,14 +2,14 @@
 ---
 classes:
   # `class_id` may be omitted if there is only one class in this file
-  - class_id: "<your_class_id>"
+  - class_id: "6036b5ca919a21bf0455eccd"
     exercises:
       # `file` is relative to .strigo directory
       - file: "../hello-world/hello.md"
         title: "Hello!"
       - file: "../hello-world/world.md"
         title: "World!"
-  - class_id: "<your_class_id>"
+  - class_id: "M6n3yjBhg9SXhTFjH"
     exercises:
       # `syntax` is optional
       # can be "md" | "rst" | "adoc"
@@ -23,7 +23,7 @@ classes:
       - file: "../markup-syntaxes/asciidoc.adoc"
         syntax: "adoc"
         title: "ASCII doc"
-  - class_id: "<your_class_id>"
+  - class_id: "603b9df00f809ae626af3117"
     exercises:
       - file: "../relative-images/md-with-relative-imgs.md"
         title: "Relative images"
