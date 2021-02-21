@@ -1,5 +1,5 @@
 ************
-Resctuctured
+Restructured
 ************
 
-Yay, resctuctured!
+Yay, restructured!
