@@ -1,6 +1,8 @@
 # Classes exercises configuration
 ---
 classes:
+  # `class_id` is optional for configurations
+  # with only one class per repository
   - class_id: <your_class_id>
     exercises:
       # `file` can be relative or absolute
