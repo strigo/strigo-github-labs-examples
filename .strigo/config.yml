@@ -1,8 +1,7 @@
 # Classes exercises configuration
 ---
 classes:
-  # `class_id` is optional for configurations
-  # with only one class per repository
+  # `class_id` may be omitted if there is only one class in this file
   - class_id: "<your_class_id>"
     exercises:
       # `file` is relative to .strigo directory
