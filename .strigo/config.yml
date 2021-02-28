@@ -23,3 +23,7 @@ classes:
       - file: "../markup-syntaxes/asciidoc.adoc"
         syntax: "adoc"
         title: "ASCII doc"
+  - class_id: "<your_class_id>"
+    exercises:
+      - file: "../relative-images/md-with-relative-imgs.md"
+        title: "Relative images"
