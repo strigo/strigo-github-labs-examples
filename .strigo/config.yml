@@ -11,18 +11,15 @@ classes:
         title: "World!"
   - class_id: "<your_class_id>"
     exercises:
-      # `syntax` is optional
-      # can be "md" | "rst" | "adoc"
-      # uses file extension as fallback
       - file: "../markup-syntaxes/markdown.md"
-        syntax: "md"
         title: "Markdown!"
+        # `syntax` is optional
+        # can be "md" | "rst"
+        # uses file extension as fallback
+        syntax: "md"
       - file: "../markup-syntaxes/restructured.rst"
-        syntax: "rst"
         title: "Restructed"
-      - file: "../markup-syntaxes/asciidoc.adoc"
-        syntax: "adoc"
-        title: "ASCII doc"
+        syntax: "rst"
   - class_id: "<your_class_id>"
     exercises:
       - file: "../relative-images/md-with-relative-imgs.md"
