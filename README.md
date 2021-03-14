@@ -1,8 +1,8 @@
-# Strigo GitHub class exercises examples
+# Strigo GitHub class exercise examples
 
 ## Quick start
 
-1. Create `.strigo/config.yml` file in your exercises' repository (or fork this repository).
+1. Create a `.strigo/config.yml` file in your exercises repository (or fork this repository).
 1. Edit the `.strigo/config.yml` file:
 
    ```yaml
@@ -71,7 +71,7 @@
 
 1. **Reusing exercises for different classes**
 
-   There is no restriction on using the same file for multiple classes, or even using the same file multiple times for the same class
+   There is no restriction on using the same file for multiple classes, or even using the same file multiple times for the same class.
 
    ```yaml
    ---
@@ -108,12 +108,12 @@
            syntax: "rst"
    ```
 
-1. **Relative vs Absolute paths to images**
+1. **Relative vs absolute paths to images**
 
-   Your exercises repository can have images stored within it. Fetching these exercises will upload the images to Strigo. If the image could be accessed for some reason, we will replace it with a placeholder instead.
+   Your exercises repository can have images stored within it. Fetching these exercises will upload the images to Strigo. If the image could not be accessed for some reason, we will replace it with a placeholder instead.
 
    Absolute image paths will not be affected, so if the image cannot be accessed, it won't show up for your students.
 
-1. **Public vs Private repositories**
+1. **Public vs private repositories**
 
    Both public and private repositories should be configured the same way. Please follow [Strigo's Guidelines](http://help.strigo.io/en/articles/4951906-fetching-lab-exercises-from-github) for more details.
