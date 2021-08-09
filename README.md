@@ -114,6 +114,11 @@
 
    Absolute image paths will not be affected, so if the image cannot be accessed, it won't show up for your students.
 
+1. **Relative vs absolute links**
+
+   Your exercises source files can have links pointing anywhere on the web. Clicking on the link will open a new tab and redirect to its destination. Local links will be replaced with absolute URL to the same location. Please make sure your users have access to the link's destination.
+
+
 1. **Public vs private repositories**
 
    Both public and private repositories should be configured the same way. Please follow [Strigo's Guidelines](http://help.strigo.io/en/articles/4951906-fetching-lab-exercises-from-github) for more details.
