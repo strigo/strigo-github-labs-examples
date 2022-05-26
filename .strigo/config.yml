@@ -7,6 +7,8 @@ classes:
         title: "Hello!"
       - file: "../hello-world/world.md"
         title: "World!"
+      - file: "../relative-images/md-with-relative-imgs.md"
+        title: "Relative images"
 
 # Class exercises - configuration for multiple classes
 # ---
