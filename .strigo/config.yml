@@ -9,8 +9,6 @@ classes:
         title: "World!"
       - file: "../relative-images/md-with-relative-imgs.md"
         title: "Relative images"
-      - file: "../markup-syntaxes/markdown-codelabs-flavor.md"
-        title: "Codelabs flavor"
 
 # Class exercises - configuration for multiple classes
 # ---
@@ -28,9 +26,12 @@ classes:
 #       - file: "../markup-syntaxes/markdown.md"
 #         title: "Markdown!"
 #         # `syntax` is optional
-#         # can be "md" | "rst"
+#         # can be "md" | "md-extended" | "rst"
 #         # uses file extension as fallback
 #         syntax: "md"
+#       - file: "../markup-syntaxes/markdown-extended.md"
+#         title: "Extended markdown"
+#         syntax: "md-extended"
 #       - file: "../markup-syntaxes/restructured.rst"
 #         title: "Restructed"
 #         syntax: "rst"
