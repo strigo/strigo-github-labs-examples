@@ -26,7 +26,7 @@
   - `exercises` - A list of class' exercises (required)
     - `file` - The path to the markup file (relative to the `.strigo` directory). Supported extensions are `md` (Markdown) and `rst` (reStructured Text). Any other extension should be overridden by the `syntax` field (see below)
     - `title` - The title of the exercise
-    - `syntax` - Overrides the file extension as used in the `file` field (`md` / `rst`)
+    - `syntax` - Overrides the file extension as used in the `file` field (`md` / `md-extended` / `rst`)
 
 ---
 
@@ -100,13 +100,35 @@
          - file: "../1.txt"
            title: "Markdown!"
            # `syntax` is optional
-           # supported syntaxes are "md" | "rst"
+           # supported syntaxes are "md" | "md-extended" | "rst"
            # uses file extension as fallback
            syntax: "md"
          - file: "../2.txt"
            title: "Title 1!"
            syntax: "rst"
    ```
+   
+   Exercises with `md-extended` syntax will be treated as Markdown file with the following extended capabilities:
+   
+   1. **Duration**
+      
+      You can mention the expected duration in format `hh:mm:ss` anywhere in your Markdown exercise file:
+      ```md
+      Duration: 1:30:00
+      ```
+   2. Info block
+      
+      You can add informative blocks of type `Positive`, `Negative` or `Neutral` anywhere in your Markdown exercise file:
+      ```md
+      Positive
+      : This will appear in a Positive info box.
+      
+      Neutral
+      : This will appear in a Neutral info box.
+      
+      Negative
+      : This will appear in a Negative info box.
+      ```
 
 1. **Relative vs absolute paths to images**
 
