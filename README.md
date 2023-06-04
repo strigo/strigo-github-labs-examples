@@ -116,7 +116,7 @@
       ```md
       Duration: 1:30:00
       ```
-   2. Info block
+   1. Info block
       
       You can add informative blocks of type `Positive`, `Negative` or `Neutral` anywhere in your Markdown exercise file:
       ```md
@@ -128,6 +128,24 @@
       
       Negative
       : This will appear in a Negative info box.
+      ```
+
+   1. Frontmatter attributes
+      
+      If your files have Frontmatter metadata set, it will be escaped:
+      ```md
+      ---
+
+      title: Exercise with Frontmatter
+      author: John Doe
+      email: john.doe@domain.com
+      address: Some location
+      tags:
+      - tag1
+      - tag2
+      - tag3
+
+      ---
       ```
 
 1. **Relative vs absolute paths to images**
