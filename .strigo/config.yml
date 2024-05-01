@@ -52,5 +52,5 @@ classes:
 #         exercise_type: "lab_challenge"
 #         title: "Lab challenge"
 #         scripts:
-#           - file: "../scripts/echo.sh"
+#           - file: "../scripts/challenge.sh"
 #             lab_resource_index: 0
