@@ -28,7 +28,6 @@ classes:
       - file: "../hello-world/world.md"
         title: "World!"
         syntax: "rst"
----
 ## Class lab resources - configuration for multiple classes
 # ---
 # classes:
