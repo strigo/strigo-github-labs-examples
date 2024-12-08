@@ -1,56 +1,139 @@
-## Class exercises - simple configuration for a single class
+## Class lab resources and exercises - simple configuration for a single class
 ---
 classes:
-  - exercises:
-      # `file` is relative to .strigo directory
+  - lab_resources:
+      - display_name: "AWS EC2 Instance"
+        platform_type: "lab"
+        image_platform: "linux"
+        view_interface: "desktop"
+        status_update_method: "webhook"
+        cloud_provider: "aws"
+        aws_vm_definition:
+          machine_size: "t2.micro"
+          ami_region_mapping:
+            eu_west_1:
+              image_id: "ami-0abcdef1234567890"
+              pool_size: 10
+              pool_enabled: true
+          custom_username: "ec2-user"
+          custom_password: "password123"
+          is_ms_office_licensed: false
+      - display_name: "Web Resource"
+        platform_type: "web"
+        web_resource_url: "https://example.com"
+    exercises:
       - file: "../hello-world/hello.md"
         title: "Hello!"
+        syntax: "md"
       - file: "../hello-world/world.md"
         title: "World!"
-
-## Class exercises - configuration for multiple classes
+        syntax: "rst"
+---
+## Class lab resources - configuration for multiple classes
 # ---
 # classes:
-#   # `class_id` may be omitted if there is only one class
-#   # in this configuration file
 #   - class_id: "<your_class_id>"
+#     lab_resources:
+#       - display_name: "AWS EC2 Instance"
+#         platform_type: "lab"
+#         image_platform: "linux"
+#         view_interface: "desktop"
+#         cloud_provider: "aws"
+#         aws_vm_definition:
+#           machine_size: "t2.micro"
+#           ami_region_mapping:
+#             eu_west_1:
+#               image_id: "ami-0abcdef1234567890"
+#               pool_size: 10
+#               pool_enabled: true
+#           custom_username: "admin"
+#           custom_password: "securepass"
+#         status_update_method: "internal"
 #     exercises:
 #       - file: "../hello-world/hello.md"
 #         title: "Hello!"
+#         syntax: "md"
+#         exercise_type: "lesson"
 #   - class_id: "<your_class_id>"
+#     lab_resources:
+#       - display_name: "Web Resource"
+#         platform_type: "web"
+#         web_resource_url: "https://example.com"
 #     exercises:
 #       - file: "../hello-world/world.md"
 #         title: "World!"
-
-## Class exercises - configuration for different supported syntaxes
+#         syntax: "html"
+#         exercise_type: "lesson"
+## Class lab resources - configuration for different resource types
 # ---
 # classes:
-#   - exercises:
-#       - file: "../markup-syntaxes/markdown.md"
-#         # `syntax` is optional
-#         # can be "md" | "md-extended" | "rst"
-#         # uses file extension as fallback
-#         syntax: "md"
-#         title: "Markdown!"
-#       - file: "../markup-syntaxes/markdown-extended.md"
-#         syntax: "md-extended"
-#         title: "Extended markdown"
-#       - file: "../markup-syntaxes/restructured.rst"
-#         syntax: "rst"
-#         title: "Restructed"
-#       - file: "../relative-images/md-with-relative-imgs.md"
-#         title: "Relative images"
-
+#   - lab_resources:
+#       - display_name: "AWS EC2 Instance"
+#         platform_type: "lab"
+#         image_platform: "linux"
+#         view_interface: "desktop"
+#         user_data: |
+#           echo "User data script"
+#         status_update_method: "webhook"
+#         cloud_provider: "aws"
+#         aws_vm_definition:
+#           machine_size: "t2.micro"
+#           ami_region_mapping:
+#             eu_west_1:
+#               image_id: "ami-0abcdef1234567890"
+#               pool_size: 10
+#               pool_enabled: true
+#           custom_username: "ec2-user"
+#           custom_password: "password123"
+#           is_ms_office_licensed: true
+#       - display_name: "Azure VM"
+#         platform_type: "lab"
+#         image_platform: "linux"
+#         view_interface: "terminal"
+#         cloud_provider: "azure"
+#         azure_vm_definition:
+#           location: "eastus"
+#           image_publisher: "Canonical"
+#           image_offer: "UbuntuServer"
+#           image_sku: "18.04-LTS"
+#           image_version: "latest"
+#           custom_username: "azureuser"
+#       - display_name: "Licensed AWS Product"
+#         platform_type: "lab"
+#         status_update_method: "internal"
+#         cloud_provider: "aws"
+#         aws_vm_definition:
+#           machine_size: "t2.micro"
+#           is_ms_office_licensed: true
+#       - display_name: "Custom Interface Port"
+#         platform_type: "lab"
+#         image_platform: "windows"
+#         view_interface: "desktop"
+#         custom_interface_port: "8080"
+#         post_launch_script: |
+#           echo "Post launch script"
+#         cloud_provider: "aws"
+#         aws_vm_definition:
+#           machine_size: "t2.micro"
+#           ami_region_mapping:
+#             eu_west_1:
+#               image_id: "ami-0abcdef1234567890"
+#               pool_size: 10
+#               pool_enabled: true
+# ---
 ## Class exercises - configuration for different exercise types
 # ---
 # classes:
 #   - exercises:
 #       - file: "../markup-syntaxes/markdown.md"
-#         # `exercise_type` is optional
-#         # can be "lesson" | "lab_challenge"
-#         # defaults to "lesson"
-#         exercise_type: "lab_challenge"
-#         title: "Lab challenge"
+#         title: "Markdown Example"
+#         exercise_type: "lesson"
+#         syntax: "md"
+#       - file: "../markup-syntaxes/challenge.md"
+#         title: "Lab Challenge"
+#         exercise_type: "challenge"
+#         syntax: "md-extended"
 #         scripts:
 #           - file: "../scripts/challenge.sh"
 #             lab_resource_index: 0
+# ---
