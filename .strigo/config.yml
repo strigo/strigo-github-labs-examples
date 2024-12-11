@@ -10,8 +10,8 @@ classes:
         aws_vm_definition:
           machine_size: "t2.micro"
           ami_region_mapping:
-            eu_west_1:
-              image_id: "ami-0abcdef1234567890"
+            eu-west-1:
+              image_id: "ami-0b32f4a77e48fcb24"
           custom_username: "ec2-user"
           custom_password: "password123"
     exercises:
@@ -35,8 +35,8 @@ classes:
 #         aws_vm_definition:
 #           machine_size: "t2.micro"
 #           ami_region_mapping:
-#             eu_west_1:
-#               image_id: "ami-0abcdef1234567890"
+#             eu-west-1:
+#               image_id: "ami-0b32f4a77e48fcb24"
 #           custom_username: "admin"
 #           custom_password: "securepass"
 #     exercises:
