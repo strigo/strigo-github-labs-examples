@@ -18,7 +18,7 @@
              machine_size: "t2.micro"
              ami_region_mapping:
                eu-west-1:
-                 image_id: "ami-0abcdef1234567890"
+                 image_id: "ami-0b32f4a77e48fcb24"
        exercises:
          - file: "../hello-world/hello.md"
            title: "Hello!"
@@ -92,7 +92,7 @@ Both public and private repositories can be configured following the same schema
              machine_size: "t2.micro"
              ami_region_mapping:
                eu-west-1:
-                 image_id: "ami-0abcdef1234567890"
+                 image_id: "ami-0b32f4a77e48fcb24"
        exercises:
          - file: "../hello-world/hello.md"
            title: "Hello!"
