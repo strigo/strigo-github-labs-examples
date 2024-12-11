@@ -19,11 +19,6 @@
              ami_region_mapping:
                eu-west-1:
                  image_id: "ami-0abcdef1234567890"
-                 pool_size: 10
-                 pool_enabled: true
-         - display_name: "Web Resource"
-           web_resource_url: "https://example.com"
-           platform_type: "web"
        exercises:
          - file: "../hello-world/hello.md"
            title: "Hello!"
@@ -42,13 +37,11 @@
      - **`display_name`**: Name of the lab resource displayed to learners (mandatory).
      - **`platform_type`**: Type of platform (mandatory). Possible values:
        - `"lab"`: Used for interactive labs.
-       - `"web"`: Used for web-based resources.
      - **`image_platform`**: Operating system platform. Possible values:
        - `"linux"`
        - `"windows"`
      - **`cloud_provider`**: Cloud provider name. Possible values:
        - `"aws"`
-       - `"azure"`
      - **`view_interface`**: Interface type. Possible values:
        - `"desktop"`
        - `"terminal"`
@@ -56,29 +49,10 @@
        - **`machine_size`**: The instance type for the AWS VM, e.g., `"t2.micro"` (mandatory).
        - **`ami_region_mapping`**: A map of AWS regions to AMI configurations (mandatory). Each entry contains:
          - **`image_id`**: The AMI ID for the region (mandatory).
-         - **`pool_size`**: Maximum pool size for the AMI (optional).
-         - **`pool_enabled`**: Whether the pool is enabled. Possible values:
-           - `true`
-           - `false`
-       - **`is_ms_office_licensed`**: Whether the AWS VM includes a Microsoft Office license. Possible values:
-         - `true`
-         - `false`
        - **`custom_username`**: Custom username for the AWS VM (optional).
        - **`custom_password`**: Custom password for the AWS VM (optional).
-     - **`azure_vm_definition`**: Azure-specific configuration. Includes:
-       - **`location`**: Azure region location (mandatory).
-       - **`image_publisher`**: Publisher of the VM image (mandatory).
-       - **`image_offer`**: Offer of the VM image (mandatory).
-       - **`image_sku`**: SKU of the VM image (mandatory).
-       - **`image_version`**: Version of the VM image (mandatory).
-       - **`custom_username`**: Custom username for the Azure VM (optional).
-     - **`web_resource_url`**: URL for web resources (mandatory for web resources).
-     - **`custom_interface_port`**: Custom port number for resources requiring specific ports (optional).
      - **`user_data`**: User data script for VM initialization (optional).
      - **`post_launch_script`**: Script executed after the VM launch (optional).
-     - **`status_update_method`**: How status updates are sent. Possible values:
-       - `"webhook"`
-       - `"internal"`
    - **`exercises`**: List of exercises for the class (optional).
      - **`file`**: Path to the exercise file, relative to `.strigo` directory (mandatory).
      - **`title`**: Title of the exercise (mandatory).
@@ -119,8 +93,6 @@ Both public and private repositories can be configured following the same schema
              ami_region_mapping:
                eu-west-1:
                  image_id: "ami-0abcdef1234567890"
-                 pool_size: 10
-                 pool_enabled: true
        exercises:
          - file: "../hello-world/hello.md"
            title: "Hello!"

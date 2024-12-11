@@ -6,21 +6,14 @@ classes:
         platform_type: "lab"
         image_platform: "linux"
         view_interface: "desktop"
-        status_update_method: "webhook"
         cloud_provider: "aws"
         aws_vm_definition:
           machine_size: "t2.micro"
           ami_region_mapping:
             eu_west_1:
               image_id: "ami-0abcdef1234567890"
-              pool_size: 10
-              pool_enabled: true
           custom_username: "ec2-user"
           custom_password: "password123"
-          is_ms_office_licensed: false
-      - display_name: "Web Resource"
-        platform_type: "web"
-        web_resource_url: "https://example.com"
     exercises:
       - file: "../hello-world/hello.md"
         title: "Hello!"
@@ -28,6 +21,7 @@ classes:
       - file: "../hello-world/world.md"
         title: "World!"
         syntax: "rst"
+
 ## Class lab resources - configuration for multiple classes
 # ---
 # classes:
@@ -43,83 +37,20 @@ classes:
 #           ami_region_mapping:
 #             eu_west_1:
 #               image_id: "ami-0abcdef1234567890"
-#               pool_size: 10
-#               pool_enabled: true
 #           custom_username: "admin"
 #           custom_password: "securepass"
-#         status_update_method: "internal"
 #     exercises:
 #       - file: "../hello-world/hello.md"
 #         title: "Hello!"
 #         syntax: "md"
 #         exercise_type: "lesson"
 #   - class_id: "<your_class_id>"
-#     lab_resources:
-#       - display_name: "Web Resource"
-#         platform_type: "web"
-#         web_resource_url: "https://example.com"
 #     exercises:
 #       - file: "../hello-world/world.md"
 #         title: "World!"
 #         syntax: "html"
 #         exercise_type: "lesson"
-## Class lab resources - configuration for different resource types
-# ---
-# classes:
-#   - lab_resources:
-#       - display_name: "AWS EC2 Instance"
-#         platform_type: "lab"
-#         image_platform: "linux"
-#         view_interface: "desktop"
-#         user_data: |
-#           echo "User data script"
-#         status_update_method: "webhook"
-#         cloud_provider: "aws"
-#         aws_vm_definition:
-#           machine_size: "t2.micro"
-#           ami_region_mapping:
-#             eu_west_1:
-#               image_id: "ami-0abcdef1234567890"
-#               pool_size: 10
-#               pool_enabled: true
-#           custom_username: "ec2-user"
-#           custom_password: "password123"
-#           is_ms_office_licensed: true
-#       - display_name: "Azure VM"
-#         platform_type: "lab"
-#         image_platform: "linux"
-#         view_interface: "terminal"
-#         cloud_provider: "azure"
-#         azure_vm_definition:
-#           location: "eastus"
-#           image_publisher: "Canonical"
-#           image_offer: "UbuntuServer"
-#           image_sku: "18.04-LTS"
-#           image_version: "latest"
-#           custom_username: "azureuser"
-#       - display_name: "Licensed AWS Product"
-#         platform_type: "lab"
-#         status_update_method: "internal"
-#         cloud_provider: "aws"
-#         aws_vm_definition:
-#           machine_size: "t2.micro"
-#           is_ms_office_licensed: true
-#       - display_name: "Custom Interface Port"
-#         platform_type: "lab"
-#         image_platform: "windows"
-#         view_interface: "desktop"
-#         custom_interface_port: "8080"
-#         post_launch_script: |
-#           echo "Post launch script"
-#         cloud_provider: "aws"
-#         aws_vm_definition:
-#           machine_size: "t2.micro"
-#           ami_region_mapping:
-#             eu_west_1:
-#               image_id: "ami-0abcdef1234567890"
-#               pool_size: 10
-#               pool_enabled: true
-# ---
+
 ## Class exercises - configuration for different exercise types
 # ---
 # classes:
@@ -135,4 +66,3 @@ classes:
 #         scripts:
 #           - file: "../scripts/challenge.sh"
 #             lab_resource_index: 0
-# ---
