@@ -20,7 +20,7 @@ classes:
         syntax: "md"
       - file: "../hello-world/world.md"
         title: "World!"
-        syntax: "rst"
+        syntax: "md"
 
 ## Class lab resources - configuration for multiple classes
 # ---
