@@ -60,7 +60,6 @@
        - `"md"`
        - `"md-extended"`
        - `"rst"`
-       - `"adoc"`
        - `"html"`
      - **`exercise_type`**: The type of exercise. Possible values:
        - `"lesson"` (default)
