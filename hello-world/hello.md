@@ -1,1 +1,1 @@
-[My Link Text](https://example.com){: .my-link-class #my-link-id }
+[My Link Text]('tab-1')
