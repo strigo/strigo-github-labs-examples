@@ -1,1 +1,1 @@
-::button[Click Me]{ .btn .btn-primary }
+[My Link Text](https://example.com){: .my-link-class #my-link-id }
