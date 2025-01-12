@@ -1,1 +1,1 @@
-[My Link Text]('tab-1')
+[My Link Text](tab-1)
