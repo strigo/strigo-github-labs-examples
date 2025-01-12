@@ -2,4 +2,4 @@
 
 Yay, markdown!
 
-[Click me](http://www.google.com){: .btn}
+<button name="button" target="t-01">Click me</button>
