@@ -1,1 +1,1 @@
-Am I a normal.link or aren't i.com ?
+Am I a https://normal.link www.or.org aren't http://i.com ?
