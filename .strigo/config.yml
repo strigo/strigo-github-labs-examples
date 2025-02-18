@@ -64,5 +64,5 @@ classes:
       exercise_type: "lab-challenge"
       syntax: "md-extended"
       scripts:
-        - file: "../scripts/lab-challenge.sh"
+        - file: "../scripts/challenge.sh"
           lab_resource_index: 0
