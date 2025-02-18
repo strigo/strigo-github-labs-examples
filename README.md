@@ -198,6 +198,20 @@ Both public and private repositories can be configured following the same schema
       ---
       ```
 
+1. **Navigation Buttons**
+
+   Navigation buttons are clickable elements you can include in your exercises to help learners navigate the learning environment. They are used to take learners the correct lab resource and interface where they need to complete the task.
+
+   Use the following syntax in your Markdown file:
+
+   ```md
+   [Button Label]({{ .STRIGO_GOTO_LAB_0 }})
+   [Button Label]({{ .STRIGO_GOTO_LAB_0_TERMINAL }})
+   [Button Label]({{ .STRIGO_GOTO_LAB_0_EDITOR }})
+   [Button Label]({{ .STRIGO_GOTO_LAB_0_INTERFACE_0 }})
+   [Button Label]({{ .STRIGO_GOTO_EXERCISE_0 }})
+   ```
+
 1. **Relative vs Absolute Paths to Images**
 
    Your exercises repository can have images stored within it. Fetching these exercises will upload the images to Strigo. If the image could not be accessed for some reason, we will replace it with a placeholder instead.
