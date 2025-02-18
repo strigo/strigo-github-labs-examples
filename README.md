@@ -63,8 +63,8 @@
        - `"html"`
      - **`exercise_type`**: The type of exercise. Possible values:
        - `"lesson"` (default)
-       - `"challenge"`
-     - **`scripts`**: Scripts for exercise validation (required for `"challenge"` exercise type). Each entry contains:
+       - `"lab-challenge"`
+     - **`scripts`**: Scripts for exercise validation (required for `"lab-challenge"` exercise type). Each entry contains:
        - **`file`**: Path to the validation script file (mandatory).
        - **`lab_resource_index`**: Index of the lab resource to run the script on (starting from 0) (mandatory).
 
@@ -109,9 +109,9 @@ Both public and private repositories can be configured following the same schema
      - exercises:
          - file: "../hello-world/hello.md"
            title: "Practical Challenge"
-           exercise_type: "challenge"
+           exercise_type: "lab-challenge"
            scripts:
-             - file: "../scripts/challenge.sh"
+             - file: "../scripts/lab-challenge.sh"
                lab_resource_index: 0
    ```
 
