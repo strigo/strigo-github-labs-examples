@@ -54,15 +54,15 @@
 ## Class exercises - configuration for different exercise types
 ---
 classes:
-  - exercises:
-      - file: "../markup-syntaxes/markdown.md"
-        title: "Markdown Example"
-        exercise_type: "lesson"
-        syntax: "md"
-      # - file: "../hello-world/hello.md"
-      #   title: "Lab Challenge"
-      #   exercise_type: "challenge"
-      #   syntax: "md-extended"
-      #   scripts:
-      #     - file: "../scripts/challenge.sh"
-      #       lab_resource_index: 0
+  exercises:
+    - file: "../hello-world/hello.md"
+      title: "Hello!"
+      syntax: "md"
+      exercise_type: "lesson"
+    # - file: "../hello-world/hello.md"
+    #   title: "Lab Challenge"
+    #   exercise_type: "challenge"
+    #   syntax: "md-extended"
+    #   scripts:
+    #     - file: "../scripts/challenge.sh"
+    #       lab_resource_index: 0
