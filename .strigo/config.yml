@@ -59,7 +59,7 @@ classes:
         title: "Markdown Example"
         exercise_type: "lesson"
         syntax: "md"
-      - file: "../markup-syntaxes/challenge.md"
+      - file: "../markup-syntaxes/markdown.md"
         title: "Lab Challenge"
         exercise_type: "challenge"
         syntax: "md-extended"
