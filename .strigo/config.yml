@@ -54,7 +54,7 @@
 ## Class exercises - configuration for different exercise types
 ---
 classes:
-  exercises:
+  - exercises:
     - file: "../hello-world/hello.md"
       title: "Hello!"
       syntax: "md"
