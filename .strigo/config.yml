@@ -43,26 +43,30 @@ classes:
 #       - file: "../hello-world/hello.md"
 #         title: "Hello!"
 #         syntax: "md"
-#         exercise_type: "lesson"
+#         exercise_type: "exercise"
 #   - class_id: "<your_class_id>"
 #     exercises:
 #       - file: "../hello-world/world.md"
 #         title: "World!"
 #         syntax: "html"
-#         exercise_type: "lesson"
+#         exercise_type: "exercise"
 
 ## Class exercises - configuration for different exercise types
 # ---
 # classes:
 #   - exercises:
-#       - file: "../markup-syntaxes/markdown.md"
-#         title: "Markdown Example"
-#         exercise_type: "lesson"
-#         syntax: "md"
-#       - file: "../markup-syntaxes/challenge.md"
-#         title: "Lab Challenge"
-#         exercise_type: "challenge"
-#         syntax: "md-extended"
-#         scripts:
-#           - file: "../scripts/challenge.sh"
-#             lab_resource_index: 0
+#     - file: "../markup-syntaxes/markdown.md"
+#       title: "Markdown"
+#       syntax: "md"
+#       exercise_type: "exercise"
+#     - file: "../navigation-buttons/navigation.md"
+#       title: "Navigation"
+#       syntax: "md"
+#       exercise_type: "exercise"
+#     - file: "../markup-syntaxes/markdown-extended.md"
+#       title: "Lab Challenge"
+#       exercise_type: "lab-challenge"
+#       syntax: "md-extended"
+#       scripts:
+#         - file: "../scripts/challenge.sh"
+#           lab_resource_index: 0
