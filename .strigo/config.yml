@@ -60,7 +60,7 @@ classes:
       syntax: "md"
       exercise_type: "exercise"
     - file: "../hello-world/hello.md"
-      title: "Lab Challenge"
+      title: "Challenge"
       exercise_type: "lab-challenge"
       syntax: "md-extended"
       scripts:
