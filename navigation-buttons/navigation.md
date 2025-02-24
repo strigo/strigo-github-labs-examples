@@ -87,3 +87,5 @@ email:
     user: email@example.com
     password: your_email_password
 ```
+
+For those with an appetite for even greater challenges, awaits. Here, the exploration continues with new dimensions to master. Begin your journey with a simple click on, then decide whether to dive into the hands-on experience of, code in the creative hub of, or get lost in dynamic interfaces via and [Lab 1 - Web view 1]({{ .STRIGO_GOTO_LAB_0_INTERFACE_0 }}).
