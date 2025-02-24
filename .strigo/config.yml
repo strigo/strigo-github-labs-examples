@@ -1,26 +1,26 @@
 ## Class lab resources and exercises - simple configuration for a single class
----
-classes:
-  - lab_resources:
-      - display_name: "AWS EC2 Instance"
-        platform_type: "lab"
-        image_platform: "linux"
-        view_interface: "desktop"
-        cloud_provider: "aws"
-        aws_vm_definition:
-          machine_size: "t2.micro"
-          ami_region_mapping:
-            eu-west-1:
-              image_id: "ami-0b32f4a77e48fcb24"
-          custom_username: "ec2-user"
-          custom_password: "password123"
-    exercises:
-      - file: "../hello-world/hello.md"
-        title: "Hello!"
-        syntax: "md"
-      - file: "../hello-world/world.md"
-        title: "World!"
-        syntax: "md"
+# ---
+# classes:
+#   - lab_resources:
+#       - display_name: "AWS EC2 Instance"
+#         platform_type: "lab"
+#         image_platform: "linux"
+#         view_interface: "desktop"
+#         cloud_provider: "aws"
+#         aws_vm_definition:
+#           machine_size: "t2.micro"
+#           ami_region_mapping:
+#             eu-west-1:
+#               image_id: "ami-0b32f4a77e48fcb24"
+#           custom_username: "ec2-user"
+#           custom_password: "password123"
+#     exercises:
+#       - file: "../hello-world/hello.md"
+#         title: "Hello!"
+#         syntax: "md"
+#       - file: "../hello-world/world.md"
+#         title: "World!"
+#         syntax: "md"
 
 ## Class lab resources - configuration for multiple classes
 # ---
@@ -52,21 +52,21 @@ classes:
 #         exercise_type: "exercise"
 
 ## Class exercises - configuration for different exercise types
-# ---
-# classes:
-#   - exercises:
-#     - file: "../markup-syntaxes/markdown.md"
-#       title: "Markdown"
-#       syntax: "md"
-#       exercise_type: "exercise"
-#     - file: "../navigation-buttons/navigation.md"
-#       title: "Navigation"
-#       syntax: "md"
-#       exercise_type: "exercise"
-#     - file: "../markup-syntaxes/markdown-extended.md"
-#       title: "Lab Challenge"
-#       exercise_type: "lab-challenge"
-#       syntax: "md-extended"
-#       scripts:
-#         - file: "../scripts/challenge.sh"
-#           lab_resource_index: 0
+---
+classes:
+  - exercises:
+    - file: "../markup-syntaxes/markdown.md"
+      title: "Markdown"
+      syntax: "md"
+      exercise_type: "exercise"
+    - file: "../navigation-buttons/navigation.md"
+      title: "Navigation"
+      syntax: "md"
+      exercise_type: "exercise"
+    - file: "../markup-syntaxes/markdown-extended.md"
+      title: "Lab Challenge"
+      exercise_type: "lab-challenge"
+      syntax: "md-extended"
+      scripts:
+        - file: "../scripts/challenge.sh"
+          lab_resource_index: 0
