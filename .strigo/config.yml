@@ -8,7 +8,7 @@ classes:
         view_interface: "desktop"
         cloud_provider: "aws"
         aws_vm_definition:
-          machine_size: "t2.micro"
+          machine_size: "t3.medium"
           ami_region_mapping:
             eu-west-1:
               image_id: "ami-0b32f4a77e48fcb24"
@@ -33,7 +33,7 @@ classes:
 #         view_interface: "desktop"
 #         cloud_provider: "aws"
 #         aws_vm_definition:
-#           machine_size: "t2.micro"
+#           machine_size: "t3.medium"
 #           ami_region_mapping:
 #             eu-west-1:
 #               image_id: "ami-0b32f4a77e48fcb24"
