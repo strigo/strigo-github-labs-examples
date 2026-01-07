@@ -70,3 +70,15 @@ classes:
 #       scripts:
 #         - file: "../scripts/challenge.sh"
 #           lab_resource_index: 0
+
+## Class lab resources using lab library items
+# ---
+# classes:
+#   - lab_resources:
+#       - display_name: "Pre-configured Ubuntu VM"
+#         platform_type: "library-vm"
+#         lab_library_item_id: "<your_library_item_id>"
+#     exercises:
+#       - file: "../hello-world/hello.md"
+#         title: "Hello!"
+#         syntax: "md"
