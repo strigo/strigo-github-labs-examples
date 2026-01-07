@@ -77,7 +77,7 @@ classes:
 #   - lab_resources:
 #       - display_name: "Pre-configured Ubuntu VM"
 #         platform_type: "library-vm"
-#         lab_library_item_id: "<your_library_item_id>"
+#         lab_library_item_id: "lib-item-abc123"
 #     exercises:
 #       - file: "../hello-world/hello.md"
 #         title: "Hello!"

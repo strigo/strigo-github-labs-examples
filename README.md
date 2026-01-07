@@ -111,7 +111,7 @@ Both public and private repositories can be configured following the same schema
      - lab_resources:
          - display_name: "Pre-configured Ubuntu VM"
            platform_type: "library-vm"
-           lab_library_item_id: "your-library-item-id-here"
+           lab_library_item_id: "lib-item-abc123"
        exercises:
          - file: "../hello-world/hello.md"
            title: "Hello!"
