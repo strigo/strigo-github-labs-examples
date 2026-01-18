@@ -36,7 +36,9 @@
    - **`lab_resources`**: List of lab resources for the class (optional).
      - **`display_name`**: Name of the lab resource displayed to learners (mandatory).
      - **`platform_type`**: Type of platform (mandatory). Possible values:
-       - `"lab"`: Used for interactive labs.
+       - `"lab"`: Used for interactive labs with inline configuration.
+       - `"library-vm"`: Used when referencing a pre-configured VM from the lab library.
+     - **`lab_library_item_id`**: Reference to a pre-configured VM in the lab library (optional). Use this instead of inline VM configuration when you have a VM saved in your lab library. When using this field, set `platform_type` to `"library-vm"`.
      - **`image_platform`**: Operating system platform. Possible values:
        - `"linux"`
        - `"windows"`
@@ -98,6 +100,26 @@ Both public and private repositories can be configured following the same schema
          - file: "../hello-world/world.md"
            title: "World!"
    ```
+
+1. **Using Lab Library Items**
+
+   Reference pre-configured VMs from your lab library instead of defining inline configuration.
+
+   ```yaml
+   ---
+   classes:
+     - lab_resources:
+         - display_name: "Pre-configured Ubuntu VM"
+           platform_type: "library-vm"
+           lab_library_item_id: "507f1f77bcf86cd799439011"
+       exercises:
+         - file: "../hello-world/hello.md"
+           title: "Hello!"
+         - file: "../hello-world/world.md"
+           title: "World!"
+   ```
+
+   > **Note**: When using `lab_library_item_id`, you must set `platform_type` to `"library-vm"`. The library item already contains the VM configuration (cloud provider, image, machine size, etc.), so you don't need to specify those fields inline.
 
 1. **Challenge Exercises**
 
