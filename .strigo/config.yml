@@ -1,9 +1,12 @@
 ## Class lab resources and exercises - simple configuration for a single class
+##
+## A lab resource's kind is derived from its definition field: `aws_vm_definition` for an inline
+## VM, `lab_library_item_id` for an item from the lab library. `platform_type` is deprecated and
+## no longer declared - see the README's "Deprecated Fields".
 ---
 classes:
   - lab_resources:
       - display_name: "AWS EC2 Instance"
-        platform_type: "lab"
         image_platform: "linux"
         view_interface: "desktop"
         cloud_provider: "aws"
@@ -28,7 +31,6 @@ classes:
 #   - class_id: "<your_class_id>"
 #     lab_resources:
 #       - display_name: "AWS EC2 Instance"
-#         platform_type: "lab"
 #         image_platform: "linux"
 #         view_interface: "desktop"
 #         cloud_provider: "aws"
@@ -48,7 +50,7 @@ classes:
 #     exercises:
 #       - file: "../hello-world/world.md"
 #         title: "World!"
-#         syntax: "html"
+#         syntax: "md"
 #         exercise_type: "exercise"
 
 ## Class exercises - configuration for different exercise types
@@ -69,15 +71,22 @@ classes:
 #       syntax: "md-extended"
 #       scripts:
 #         - file: "../scripts/challenge.sh"
+#           # Positional - the first entry under `lab_resources`.
 #           lab_resource_index: 0
 
 ## Class lab resources using lab library items
+##
+## Reference a VM or a cloud account saved in your lab library. The library item holds the
+## configuration - for a cloud account that includes its cloud provider, region, the permissions
+## learners get and anything provisioned into the account - so nothing but its ID is needed here.
+## Do not add `platform_type`: it is derived from the library item.
 # ---
 # classes:
 #   - lab_resources:
 #       - display_name: "Pre-configured Ubuntu VM"
-#         platform_type: "library-vm"
-#         lab_library_item_id: "507f1f77bcf86cd799439011"
+#         lab_library_item_id: "<your_lab_library_vm_id>"
+#       - display_name: "AWS Sandbox Account"
+#         lab_library_item_id: "<your_lab_library_cloud_account_id>"
 #     exercises:
 #       - file: "../hello-world/hello.md"
 #         title: "Hello!"

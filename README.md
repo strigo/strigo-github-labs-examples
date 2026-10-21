@@ -10,12 +10,11 @@
    classes:
      - lab_resources:
          - display_name: "AWS EC2 Instance"
-           platform_type: "lab"
            image_platform: "linux"
            view_interface: "desktop"
            cloud_provider: "aws"
            aws_vm_definition:
-             machine_size: "t2.micro"
+             machine_size: "t3.medium"
              ami_region_mapping:
                eu-west-1:
                  image_id: "ami-0b32f4a77e48fcb24"
@@ -33,42 +32,79 @@
 
 1. **`classes`**: Defines the training classes (mandatory).
    - **`class_id`**: A unique identifier for the class. This field is required if managing multiple classes within a single repository (optional).
+   - **`base_folder`**: Path to a folder, relative to the `.strigo` directory, whose contents are uploaded to Strigo together with the exercises (optional, mandatory if any exercise uses `syntax: "html"`).
    - **`lab_resources`**: List of lab resources for the class (optional).
-     - **`display_name`**: Name of the lab resource displayed to learners (mandatory).
-     - **`platform_type`**: Type of platform (mandatory). Possible values:
-       - `"lab"`: Used for interactive labs with inline configuration.
-       - `"library-vm"`: Used when referencing a pre-configured VM from the lab library.
-     - **`lab_library_item_id`**: Reference to a pre-configured VM in the lab library (optional). Use this instead of inline VM configuration when you have a VM saved in your lab library. When using this field, set `platform_type` to `"library-vm"`.
-     - **`image_platform`**: Operating system platform. Possible values:
+     - **`display_name`**: Name of the lab resource displayed to learners (mandatory). Display names must be unique within a class, and are what identifies a resource from one sync to the next - see **Stable Lab Resources Across Syncs** under [Core Concepts](#core-concepts).
+     - Each lab resource must contain **exactly one** of the two definition fields below. Which one it is determines what kind of resource it is - you no longer declare that yourself:
+       - **`aws_vm_definition`**: An AWS VM configured inline, in this file.
+         - **`machine_size`**: The instance type for the AWS VM, e.g., `"t3.medium"` (mandatory).
+         - **`ami_region_mapping`**: A map of AWS regions to AMI configurations (mandatory). Each entry contains:
+           - **`image_id`**: The AMI ID for the region (mandatory).
+         - **`custom_username`**: Custom username for the AWS VM (optional).
+         - **`custom_password`**: Custom password for the AWS VM (optional).
+       - **`lab_library_item_id`**: Reference to an item saved in your lab library - a pre-configured VM or a cloud account. The library item holds the configuration, so none of the inline fields below apply. See **Using Lab Library Items** under [Core Concepts](#core-concepts).
+     - **`cloud_provider`**: Cloud provider name (mandatory for inline VMs, ignored for lab library items). Possible values:
+       - `"aws"`
+     - **`image_platform`**: Operating system platform (optional, ignored for lab library items). Possible values:
        - `"linux"`
        - `"windows"`
-     - **`cloud_provider`**: Cloud provider name. Possible values:
-       - `"aws"`
-     - **`view_interface`**: Interface type. Possible values:
+     - **`view_interface`**: Interface type (optional, ignored for lab library items). Possible values:
        - `"desktop"`
        - `"terminal"`
-     - **`aws_vm_definition`**: AWS-specific configuration.
-       - **`machine_size`**: The instance type for the AWS VM, e.g., `"t2.micro"` (mandatory).
-       - **`ami_region_mapping`**: A map of AWS regions to AMI configurations (mandatory). Each entry contains:
-         - **`image_id`**: The AMI ID for the region (mandatory).
-       - **`custom_username`**: Custom username for the AWS VM (optional).
-       - **`custom_password`**: Custom password for the AWS VM (optional).
-     - **`user_data`**: User data script for VM initialization (optional).
-     - **`post_launch_script`**: Script executed after the VM launch (optional).
+     - **`user_data`**: User data script for VM initialization (optional, inline VMs only).
+     - **`post_launch_script`**: Script executed after the VM launch (optional, inline VMs only).
+     - **`platform_type`**: Deprecated - the resource kind is now derived from the definition field above. Still accepted for existing configurations; see [Deprecated Fields](#deprecated-fields).
    - **`exercises`**: List of exercises for the class (optional).
      - **`file`**: Path to the exercise file, relative to `.strigo` directory (mandatory).
-     - **`title`**: Title of the exercise (mandatory).
-     - **`syntax`**: Syntax of the exercise file. Possible values:
+     - **`title`**: Title of the exercise (optional, defaults to `Exercise <n>`).
+     - **`syntax`**: Syntax of the exercise file (optional, defaults to the file's extension). Possible values:
        - `"md"`
        - `"md-extended"`
        - `"rst"`
-       - `"html"`
+       - `"html"` (requires `base_folder` on the class)
      - **`exercise_type`**: The type of exercise. Possible values:
-       - `"lesson"` (default)
+       - `"exercise"` (default)
        - `"lab-challenge"`
      - **`scripts`**: Scripts for exercise validation (required for `"lab-challenge"` exercise type). Each entry contains:
        - **`file`**: Path to the validation script file (mandatory).
-       - **`lab_resource_index`**: Index of the lab resource to run the script on (starting from 0) (mandatory).
+       - **`lab_resource_index`**: Index of the lab resource to run the script on (starting from 0) (mandatory). The index is positional - it points at the order the resources appear in under `lab_resources`.
+
+## Deprecated Fields
+
+These fields are no longer needed. Existing configurations that still use them keep working, so there is nothing you have to change - but new configurations should leave them out.
+
+1. **`platform_type`**
+
+   A lab resource's kind used to be declared explicitly. It is now derived from the configuration itself: an entry with `aws_vm_definition` is an inline lab VM, and an entry with `lab_library_item_id` takes its kind from the library item it points at.
+
+   `platform_type` is still accepted with the values it always allowed, `"lab"` and `"library-vm"`, as long as it agrees with what the configuration describes. A value that contradicts the configuration fails the sync.
+
+   ```yaml
+   # Still supported
+   - display_name: "AWS EC2 Instance"
+     platform_type: "lab"
+     cloud_provider: "aws"
+     aws_vm_definition:
+       machine_size: "t3.medium"
+       ami_region_mapping:
+         eu-west-1:
+           image_id: "ami-0b32f4a77e48fcb24"
+
+   # Preferred
+   - display_name: "AWS EC2 Instance"
+     cloud_provider: "aws"
+     aws_vm_definition:
+       machine_size: "t3.medium"
+       ami_region_mapping:
+         eu-west-1:
+           image_id: "ami-0b32f4a77e48fcb24"
+   ```
+
+   One case does require removing it: a **cloud account** referenced from the lab library. Its derived kind is `cloud-account`, which was never a valid `platform_type` value, so the field has to be omitted rather than updated.
+
+1. **`exercise_type: "challenge"`**
+
+   An older alias for `"lab-challenge"`, still honored. Use `"lab-challenge"` instead.
 
 ## Public vs Private Repositories
 
@@ -85,12 +121,11 @@ Both public and private repositories can be configured following the same schema
    classes:
      - lab_resources:
          - display_name: "AWS EC2 Instance"
-           platform_type: "lab"
            image_platform: "linux"
            view_interface: "desktop"
            cloud_provider: "aws"
            aws_vm_definition:
-             machine_size: "t2.micro"
+             machine_size: "t3.medium"
              ami_region_mapping:
                eu-west-1:
                  image_id: "ami-0b32f4a77e48fcb24"
@@ -103,14 +138,15 @@ Both public and private repositories can be configured following the same schema
 
 1. **Using Lab Library Items**
 
-   Reference pre-configured VMs from your lab library instead of defining inline configuration.
+   Reference an item saved in your lab library instead of configuring it inline. The reference is just a display name and the library item's ID - the item itself holds the configuration, and the kind of resource is taken from it.
+
+   A pre-configured **VM**:
 
    ```yaml
    ---
    classes:
      - lab_resources:
          - display_name: "Pre-configured Ubuntu VM"
-           platform_type: "library-vm"
            lab_library_item_id: "507f1f77bcf86cd799439011"
        exercises:
          - file: "../hello-world/hello.md"
@@ -119,7 +155,37 @@ Both public and private repositories can be configured following the same schema
            title: "World!"
    ```
 
-   > **Note**: When using `lab_library_item_id`, you must set `platform_type` to `"library-vm"`. The library item already contains the VM configuration (cloud provider, image, machine size, etc.), so you don't need to specify those fields inline.
+   A **cloud account** - a real cloud account handed to each learner for the duration of the class:
+
+   ```yaml
+   ---
+   classes:
+     - lab_resources:
+         - display_name: "AWS Sandbox Account"
+           lab_library_item_id: "507f1f77bcf86cd799439012"
+       exercises:
+         - file: "../hello-world/hello.md"
+           title: "Hello!"
+         - file: "../hello-world/world.md"
+           title: "World!"
+   ```
+
+   The two look identical on purpose: everything specific to the resource lives on the library item, configured in Strigo rather than here. For a VM that is its cloud provider, image and machine size; for a cloud account it is the cloud provider and region, the permissions learners are granted in the account, and any CloudFormation or Terraform resources provisioned into it.
+
+   A single class can mix library VMs, library cloud accounts and inline VMs in the same `lab_resources` list.
+
+   > **Note**: Do not set `platform_type` on a lab library reference. It is derived from the library item, and a declared value that disagrees with the item fails the sync - for a cloud account there is no value you could declare. See [Deprecated Fields](#deprecated-fields).
+
+1. **Stable Lab Resources Across Syncs**
+
+   Every sync re-imports the lab resources from scratch and matches each one against the class's existing resource of the same `display_name`. That match is what preserves a resource's identity, and with it everything already attached to it: running instances, cloud accounts assigned to learners, and the lab challenge scripts bound to it.
+
+   In practice:
+
+   - Changing anything **other than** the display name updates the resource in place. A resource can even change kind - from an inline VM to a lab library item, for instance - and still be the same resource.
+   - Changing the `display_name` is a **replacement**: the resource under the old name is dropped and a new one is created in its place. Avoid renaming resources of a class that has already started.
+   - Display names must be unique within a class. A duplicate name fails the sync with a configuration error.
+   - Reordering entries under `lab_resources` is safe for the resources themselves, but `lab_resource_index` in lab challenge scripts is positional, so update those indexes to match the new order.
 
 1. **Challenge Exercises**
 
@@ -133,7 +199,7 @@ Both public and private repositories can be configured following the same schema
            title: "Practical Challenge"
            exercise_type: "lab-challenge"
            scripts:
-             - file: "../scripts/lab-challenge.sh"
+             - file: "../scripts/challenge.sh"
                lab_resource_index: 0
    ```
 
